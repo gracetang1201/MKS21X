@@ -1,0 +1,9 @@
+git clone <link copied frm clone/download button> --> clones the repo onto local computer
+
+git add README.md (adds all modified and new files in current directory
+
+git status --> shows what files were changed
+
+git commit -m"message" --> commits the changes you made with the message(usually tells what changes you made)
+
+git push --> adds the changes to the online git version
