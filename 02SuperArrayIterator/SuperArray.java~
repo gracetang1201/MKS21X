@@ -1,5 +1,4 @@
-import java.util.Iterator;
-public class SuperArray implements Iterable<String>{
+public class SuperArray{
   private String[] data;
   private int size;
 
@@ -72,9 +71,7 @@ public class SuperArray implements Iterable<String>{
     public boolean add (String n){
 
 	if (data.length == size){
-	    int temp = size;
 	    grow();
-	    data[temp] = n;
 	}else{
 	    data[size] = n;
 	}
@@ -278,11 +275,6 @@ public class SuperArray implements Iterable<String>{
 	 }
 	 data = temp;
 	
-    }
-    public SuperArrayIterator iterator(){
-	//create a SuperArrayIterator
-	SuperArrayIterator SAI = new SuperArrayIterator(this);
-	return SAI; 
     }
   
 }
