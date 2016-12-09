@@ -12,7 +12,7 @@ public class Barcode implements Comparable<Barcode>{
 	//Barcode testcase3 = new Barcode("123456");
 	//System.out.println("FAIL: too little letters");
 	//Barcode testcase4 = new Barcode("123");
-	System.out.println(testcase.clone(testcase));
+	System.out.println(createzip("|||:::|::|::|::|:|:|::::|||::|:|"));
 	    
     }
 
@@ -50,7 +50,7 @@ public class Barcode implements Comparable<Barcode>{
       for (int i = 0; i < _zip.length(); i++){
 	  ans = ans + Integer.parseInt( _zip.charAt(i)+"");
       }
-      return ans;
+      return ans/10; 
   }
 
 //postcondition: format zip + check digit + barcode 
@@ -92,11 +92,68 @@ public class Barcode implements Comparable<Barcode>{
 
 // postcondition: compares the zip + checkdigit, in numerical order. 
   public int compareTo(Barcode other){
-      if (other._zip.equals(_zip) && other._checkDigit == _checkDigit){
-	  return 0;
+      if (Integer.parseInt(_zip) > Integer.parseInt(other._zip)){
+	  return 1;
       }else{
-	  return -1;
+	  if (Integer.parseInt(_zip) < Integer.parseInt(other._zip)){
+	      return -1;
+	  }else{
+	      return 0;
+	  }
+      }
     
 }
+    public static String createzip(String code){
+      String ans = "";
+      int CSofans = 0;
+      for(int i = 0; i < code.length()-1; i++){
+	  if(!code.substring(i, i+1).equals("|") &&
+	     !code.substring(i, i+1).equals(":")){
+	      throw new IllegalArgumentException("your barcode has an invalid character");
+	  }
+      }
+      if(code.length() != 32){
+	  throw new IllegalArgumentException("your barcode doesn't have enough characters.");
+      }
+      if(!code.substring(0, 1).equals("|")){
+	  throw new IllegalArgumentException("your barcode should start with a '|'");
+      }
+      if(!code.substring(31).equals("|")){
+	  throw new IllegalArgumentException("your barcode should end with a '|'");
+      }
+      for( int i = 0; i < 6; i++){
+	  switch ( code.substring(i*5 + 1, i*5 + 6) ){
+	  case ":::||": ans = ans + "1";
+	      break;
+	  case "::|:|": ans = ans + "2";
+	       break;
+	  case "::||:": ans = ans + "3";
+	       break;
+	  case ":|::|": ans = ans + "4";
+	       break;
+	  case ":|:|:": ans = ans + "5";
+	       break;
+	  case ":||::": ans = ans + "6";
+	       break;
+	  case "|:::|": ans = ans + "7";
+	       break;
+	  case "|::|:": ans = ans + "8";
+	       break;
+	  case "|:|::": ans = ans + "9";
+	       break;
+	  case "||:::": ans = ans + "0";
+	       break;
+	  default: throw new IllegalArgumentException("your barcode doesn't match up with the numbers");
+	  }
+      }
+      int CS = 0;
+      for (int i = 0; i < ans.length()-1; i++){
+	  CS = CS + Integer.parseInt( ans.charAt(i)+"");
+      }
+      if ( CS%10 != Integer.parseInt(ans.substring(5))){
+	  throw new IllegalArgumentException("the checksums do not match");
+      }
+      return ans;
+  }
 }
-}
+
