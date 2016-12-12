@@ -2,7 +2,7 @@ public class Barcode implements Comparable<Barcode>{
 // instance variables
    private String _zip;
    private int _checkDigit;
-    private String BC;
+    private static String BC;
     public static void main(String[] args){
 	Barcode testcase = new Barcode("12345");
 	//Barcode testcase5 = new Barcode("23456");
@@ -12,8 +12,9 @@ public class Barcode implements Comparable<Barcode>{
 	//Barcode testcase3 = new Barcode("123456");
 	//System.out.println("FAIL: too little letters");
 	//Barcode testcase4 = new Barcode("123");
-	System.out.println(createzip("|||:::|::|::|::|:|:|::::|||::|:|"));
-	    
+	System.out.println(toZip("|||:::|::|::|::|:|:|::::|||::|:|"));
+	System.out.println("This should fail!");
+	System.out.println(toZip("|||:::|::|::|::|:|:|::::||"));
     }
 
 // constructors
@@ -32,7 +33,7 @@ public class Barcode implements Comparable<Barcode>{
 	  throw new IllegalArgumentException();
       }
       _zip = zip;
-      _checkDigit = checkSum() % 10;
+      _checkDigit = checkSum();
       
       
   }
@@ -50,18 +51,29 @@ public class Barcode implements Comparable<Barcode>{
       for (int i = 0; i < _zip.length(); i++){
 	  ans = ans + Integer.parseInt( _zip.charAt(i)+"");
       }
-      return ans/10; 
+      _checkDigit = ans%10;
+      return ans%10; 
   }
 
 //postcondition: format zip + check digit + barcode 
 //ex. "084518  |||:::|::|::|::|:|:|::::|||::|:|"      
   public String toString(){
-      return (_checkDigit + _zip + " " + "|" + createBC() + "|");
+      return (_checkDigit + _zip + " " + "|" + toCode(_zip) + "|");
   }
-  private String createBC(){
+
+  private static String toCode(String zip){
+      if(zip.length() != 5){
+	  throw new IllegalArgumentException("your zipcode should be 5 characters");
+      }
+      try{
+	  int temp = 0;
+	  temp = Integer.parseInt(zip);
+      }catch(IllegalArgumentException e){
+	  throw new IllegalArgumentException("your zip has invalid characters!");
+      }
       String ans = "";
-      for( int i = 0; i < _zip.length(); i++){
-	  switch ( Integer.parseInt(_zip.charAt(i)+"") ){
+      for( int i = 0; i < zip.length(); i++){
+	  switch ( Integer.parseInt(zip.charAt(i)+"") ){
 	  case 1: ans = ans + ":::||";
 	      break;
 	  case 2: ans = ans + "::|:|";
@@ -103,9 +115,8 @@ public class Barcode implements Comparable<Barcode>{
       }
     
 }
-    public static String createzip(String code){
+    public static String toZip(String code){
       String ans = "";
-      int CSofans = 0;
       for(int i = 0; i < code.length()-1; i++){
 	  if(!code.substring(i, i+1).equals("|") &&
 	     !code.substring(i, i+1).equals(":")){
@@ -153,7 +164,8 @@ public class Barcode implements Comparable<Barcode>{
       if ( CS%10 != Integer.parseInt(ans.substring(5))){
 	  throw new IllegalArgumentException("the checksums do not match");
       }
-      return ans;
+      return ans.substring(0, 5);
   }
 }
+
 
