@@ -3,8 +3,8 @@ public class Sorts{
     /**EDIT THIS METHOD TO MATCH YOUR NAME 
      */
     public static void main (String[]args){
-	int[] myIntArray = new int[]{3, 2, 1};
-	selectionSort(myIntArray);
+	int[] myIntArray = new int[]{5, 0, 1};
+	insertionSort(myIntArray);
 	System.out.println( Arrays.toString( myIntArray ) );
     }
     public static String name(){
@@ -30,6 +30,19 @@ public class Sorts{
 	    data[i] = counter;
 	}
     }
-
+    public static void insertionSort(int[] data){
+	for( int i = 1; i < data.length; i++){
+	    for( int d = i; d > 0; d--){
+		if(data[d] < data[d-1]){
+		    int temp = data[d];
+		    data[d] = data[d-1];
+		    data[d-1] = temp;
+		}
+		
+	    }
+	}
+    }
 }
+
+
 
