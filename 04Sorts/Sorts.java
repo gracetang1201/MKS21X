@@ -42,6 +42,23 @@ public class Sorts{
 	    }
 	}
     }
+    public static void bubbleSort(int[] data){
+	boolean swapped = true;
+	while (swapped){
+	    swapped = false;
+	    for(int numsignore = 0; numsignore < data.length; numsignore++){
+		for (int i = 0; i < numsignore; i++){
+		    if (data[i+1] < data[i]){
+			swapped = true;
+			int temp = data[i+1];
+			data[i+1] = data[i];
+			data[i] = temp;
+
+		    }
+		}
+	    }
+	}
+    }
 }
 
 
