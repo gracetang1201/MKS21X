@@ -3,7 +3,7 @@ public class Sorts{
     /**EDIT THIS METHOD TO MATCH YOUR NAME 
      */
     public static void main (String[]args){
-	int[] myIntArray = new int[]{5, 0, 1};
+	int[] myIntArray = new int[]{};
 	insertionSort(myIntArray);
 	System.out.println( Arrays.toString( myIntArray ) );
     }
