@@ -1,4 +1,5 @@
 public class Sorts{
+<<<<<<< HEAD
     
     /**EDIT THIS METHOD TO MATCH YOUR NAME 
      */
@@ -36,3 +37,33 @@ public static void main(String[] args){
     }
 
 }
+=======
+  /**EDIT THIS METHOD TO MATCH YOUR NAME 
+  */
+  public static String name(){
+    return "06.Tang.Grace"; 
+  }
+
+  /**Selection sort of an int array. 
+  *Upon completion, the elements of the array will be in increasing order.
+  *@param data  the elements to be sorted.
+  */
+  public static void selectionSort(int[] data){
+      int tempID = 0;
+      int counter = data[0];
+      for (int i = 0; i < data.length - 1; i++){
+	  counter = data[i];
+	  for (int d = i; i < data.length; d++){
+	      if (data[d] < counter){
+		  tempID = d;
+		  counter = data[d];
+	      }
+	  }
+	  data[tempID] = data[i];
+	  data[i] = counter;
+      }
+  }
+
+}
+
+>>>>>>> 1821271cbce0a474cfef8322b4c30e1d88e4685b
