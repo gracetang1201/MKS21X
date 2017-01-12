@@ -8,7 +8,7 @@ public class Sorts{
     /**EDIT THIS METHOD TO MATCH YOUR NAME 
      */
     public static void main (String[]args){
-	int[] myIntArray = new int[]{5, 0, 1};
+	int[] myIntArray = new int[]{};
 	insertionSort(myIntArray);
 	System.out.println( Arrays.toString( myIntArray ) );
     }
@@ -79,6 +79,23 @@ public class Sorts{
 		    data[d-1] = temp;
 		}
 		
+	    }
+	}
+    }
+    public static void bubbleSort(int[] data){
+	boolean swapped = true;
+	while (swapped){
+	    swapped = false;
+	    for(int numsignore = 0; numsignore < data.length; numsignore++){
+		for (int i = 0; i < numsignore; i++){
+		    if (data[i+1] < data[i]){
+			swapped = true;
+			int temp = data[i+1];
+			data[i+1] = data[i];
+			data[i] = temp;
+
+		    }
+		}
 	    }
 	}
     }
