@@ -1,10 +1,8 @@
 import java.util.Arrays;
 public class Sorts{
-<<<<<<< HEAD
     
     /**EDIT THIS METHOD TO MATCH YOUR NAME 
      */
-=======
     /**EDIT THIS METHOD TO MATCH YOUR NAME 
      */
     public static void main (String[]args){
@@ -12,7 +10,6 @@ public class Sorts{
 	insertionSort(myIntArray);
 	System.out.println( Arrays.toString( myIntArray ) );
     }
->>>>>>> 1821271cbce0a474cfef8322b4c30e1d88e4685b
     public static String name(){
 	return "06.Tang.Grace"; 
     }
@@ -22,7 +19,6 @@ public class Sorts{
      *@param data  the elements to be sorted.
      */
     public static void selectionSort(int[] data){
-<<<<<<< HEAD
 	/*  
 	int tempind = 0;
 	int counter = data[0];
@@ -55,7 +51,6 @@ public class Sorts{
     }
 
 }
-=======
 	int tempID = 0;
 	int counter;
 	for (int i = 0; i < data.length-1; i++){
@@ -100,7 +95,3 @@ public class Sorts{
 	}
     }
 }
-
-
-
->>>>>>> 1821271cbce0a474cfef8322b4c30e1d88e4685b
