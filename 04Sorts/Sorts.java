@@ -33,12 +33,10 @@ public class Sorts{
 	    data[i] = counter;
 	    
 	}
-	
-	int []newArr;
-	newArr = new int[data.length];
+    }
 	
 	    
-    }
+    
     public static void main(String[] args){
 	int[] anArray = { 
 	    300, 200, 300,
@@ -51,20 +49,7 @@ public class Sorts{
     }
 
 }
-	int tempID = 0;
-	int counter;
-	for (int i = 0; i < data.length-1; i++){
-	    counter = data[i];
-	    for (int d = i; d < data.length; d++){
-		if (data[d] <= counter){
-		    tempID = d;
-		    counter = data[d];
-		}
-	    }
-	    data[tempID] = data[i];
-	    data[i] = counter;
-	}
-    }
+	
     public static void insertionSort(int[] data){
 	for( int i = 1; i < data.length; i++){
 	    for( int d = i; d > 0; d--){
