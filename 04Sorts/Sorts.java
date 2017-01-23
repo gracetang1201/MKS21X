@@ -19,7 +19,7 @@ public class Sorts{
      *@param data  the elements to be sorted.
      */
     public static void selectionSort(int[] data){
-	/*  
+	
 	int tempind = 0;
 	int counter = data[0];
 	for (int i = 0; i < data.length - 2; i++){
@@ -33,7 +33,7 @@ public class Sorts{
 	    data[i] = counter;
 	    
 	}
-	*/
+	
 	int []newArr;
 	newArr = new int[data.length];
 	
