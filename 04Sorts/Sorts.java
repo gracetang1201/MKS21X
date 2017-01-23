@@ -36,19 +36,9 @@ public class Sorts{
     }
 	
 	    
-    
-    public static void main(String[] args){
-	int[] anArray = { 
-	    300, 200, 300,
-	    400, 500, 600, 
-	    700, 800, 900, 1000
-	};
-	selectionSort(anArray);
-	System.out.println(Arrays.toString(anArray));
-	
-    }
+   
 
-}
+
 	
     public static void insertionSort(int[] data){
 	for( int i = 1; i < data.length; i++){
